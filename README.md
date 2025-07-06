@@ -22,7 +22,7 @@ Geleneksel KTAS uygulamaları sağlık personelinin bireysel değerlendirmelerin
 
 ## 3. Sprint Yönetimi ve Trello
 Sprint takibi Trello üzerinden yapılmıştır. Sprint 1 panosuna ait bağlantı:  
-🔗 https://trello.com/invite/b/68665405dede83130f458f73
+🔗 https://trello.com/invite/b/68665405dede83130f458f73/ATTIc0d28ec31b5a2e3f11f642a9e7280ed023B5F3A6/bootcamp-sprint-1
 
 ## 4. Sprint 1 Görev Özeti ve Durumu
 
