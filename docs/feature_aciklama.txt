@@ -1,0 +1,71 @@
+#ANDAC BILGILI
+#5-7-25
+
+
+# Feature Açıklama Dokümantasyonu – Sprint 1 / Emergency Triage AI
+
+Merhaba! Bu dosyada proje kapsamında kullandığımız veri setindeki sütunların (özelliklerin) ne anlama geldiğini, nasıl dönüştürüldüğünü ve modelde nasıl kullanılacağını elimden geldiğince açıklamaya çalıştım.
+
+---
+
+## 1. SAYISAL ÖZELLİKLER
+
+Aşağıdaki sütunlar sayısal (int veya float) tipindedir ve modellemeye doğrudan ya da dolaylı olarak katkı sağlar:
+
+- **Age** → Hastanın yaşı (int). Risk skorunda kullanıldı. Özellikle 70 yaş üstü durumlar önemli.
+- **BT** → Body Temperature (float). 38°C ve üzeri → ateşi var → risk artıyor.
+- **HR** → Heart Rate (float). 100 ve üzeri nabız yüksek kabul edildi → risk skorunda kullanıldı.
+- **SBP** → Sistolik Kan Basıncı (float). (Yani “büyük tansiyon”)
+- **DBP** → Diyastolik Kan Basıncı (float). (“küçük tansiyon”)
+- **RR** → Solunum Hızı (float). Anormal değerlerde hastaya dikkat edilmeli.
+- **Saturation** → Oksijen doygunluğu. Değerli bir bilgi ama çok fazla eksik veri içerdiği için bu sprintte şimdilik kullanılmadı.
+- **KTAS duration_min** → KTAS değerlendirme süresi. Model dışında tutuldu ama göz önünde olabilir.
+- **risk_score** → Bizim tarafımızdan oluşturulan yeni bir özellik! Yaş + Nabız + Ateş bilgilerine göre 0–3 arası risk puanı üretir.
+
+---
+
+## 2. KATEGORİK (ENCODE EDİLEN) ÖZELLİKLER
+
+Bu sütunlar modelleme için one-hot encoding yöntemiyle sayısallaştırıldı.
+
+- **Sex** → Cinsiyet (1: Erkek, 2: Kadın). get_dummies() ile iki kolona ayrıldı.
+- **Arrival mode** → Hastanın geliş şekli (yürüyerek mi, ambulansla mı vs.)
+- **Injury** → Travma durumu (evet/hayır gibi). get_dummies() ile dönüştürüldü.
+- **Mental** → Bilinç düzeyi. Sayısal ama sınıflı. Encoding yapıldı.
+- **Pain** → Hastanın verdiği ağrı puanı (0–10). Ağrısı varsa önemlidir.
+- **NRS_pain** → Ağrı skalası (National Rating Scale). Ekstra bilgi olabilir.
+
+Bu özellikleri şu kodla encode ettik:
+```python
+df_encoded = pd.get_dummies(df, columns=["Sex", "Arrival mode", "Injury", "Mental", "Pain", "NRS_pain"])
+
+3. METİN VERİLER (Şimdilik dışarıda)
+Aşağıdaki metinsel özellikler ileride GenAI veya NLP için çok değerli olabilir ama şu anki modelleme aşamasında dahil edilmedi:
+
+Chief_complain → Hastanın kendi cümlesiyle yazdığı şikayet açıklaması (örnek: "nefes darlığı", "baş ağrısı")
+
+Diagnosis in ED → Acil servisteki teşhis cümlesi
+
+Bunlar sonraki sprintlerde değerlendirilebilir.
+
+4. HEDEF DEĞİŞKEN (Target Feature)
+ktas_class → Bu bizim oluşturduğumuz hedef değişken.
+
+1–2 → “Kırmızı” (Çok acil)
+
+3 → “Sarı” (Orta seviye acil)
+
+4–5 → “Yeşil” (Acil değil)
+
+Bu sınıflar modelimizin tahmin etmeye çalışacağı hedeflerdir.
+
+5. Ekstra Notlar:
+df.info() ile sütunların veri tiplerini kontrol ettik.
+
+object tipindeki sayısal sütunları pd.to_numeric() ile dönüştürdük.
+
+risk_score gibi türetilmiş değişkenler projeye özgü ve anlamlı oldu.
+
+Feature engineering kısmı model başarısı açısından kritik bir adımdı.
+
+

@@ -1,0 +1,72 @@
+# ANDAC BILGILI 
+# 5-7-2025
+
+
+
+# KTAS Sınıf Dönüşümü – Sprint 1 Görev 3
+
+Bu görevde, veri setindeki `KTAS_RN` sütununu klinik aciliyet seviyelerine göre yeniden sınıflandırdık. Böylece modelin hedef değişkenini oluşturmuş olduk.
+
+---
+
+## 1. Hedef Sütun: KTAS_RN
+
+KTAS sistemi, hastaların aciliyet derecesini 1 ile 5 arasında puanlayarak belirler:
+
+- 1: En acil
+- 5: En az acil
+
+Biz bu 5 seviyeyi 3 ana sınıfa dönüştürdük.
+
+---
+
+## 2. Sınıf Dönüşüm Kuralları:
+
+Yeni oluşturduğumuz `ktas_class` sütunundaki dönüşüm mantığı şu şekildedir:
+
+- **Kırmızı:** KTAS 1 ve 2 → Çok acil
+- **Sarı:** KTAS 3 → Orta acil
+- **Yeşil:** KTAS 4 ve 5 → Acil değil
+
+Dönüşüm kodu:
+
+```python
+def ktas_to_class(ktas_value):
+    if ktas_value in [1, 2]:
+        return "Kırmızı"
+    elif ktas_value == 3:
+        return "Sarı"
+    elif ktas_value in [4, 5]:
+        return "Yeşil"
+    else:
+        return "Bilinmiyor"
+
+df["ktas_class"] = df["KTAS_RN"].apply(ktas_to_class)
+
+3. Sınıf Dağılımı:
+Dönüşüm sonrasında her sınıfta kaç hasta olduğu:
+
+Yeşil     : 588 hasta
+Sarı      : 447 hasta
+Kırmızı   : 232 hasta
+
+4. Görselleştirme:
+
+Bu dağılımı daha iyi anlamak için matplotlib kütüphanesiyle bar chart (çubuk grafik) çizdik.
+
+Grafikte her sınıfın hasta sayısı farklı renklerle gösterildi:
+
+Kırmızı → “Kırmızı” sınıf
+
+Turuncu → “Sarı” sınıf
+
+Yeşil → “Yeşil” sınıf
+
+Grafik başlığı: KTAS Sınıf Dağılımı
+
+5. Sonuç:
+
+Bu adım sayesinde modelleme yaparken kullanacağımız hedef değişkeni (ktas_class) hazır hale geldi.
+Ayrıca sınıf dengesizliği olduğunu gördük. Bu, model eğitiminde dikkate alınmalı.
+
+

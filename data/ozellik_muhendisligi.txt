@@ -1,0 +1,75 @@
+#ANDAC BILGILI
+#5-7-2025
+
+
+# Özellik Mühendisliği – Sprint 1 Görev 4
+
+Bu görevde, modellemeye uygun hale getirmek için veri setimizde bazı düzenlemeler yaptık, dönüştürmeler uyguladık ve yeni bir özellik oluşturduk.
+
+---
+
+## 1. Sayısal ve Kategorik Sütunları Ayırdık
+
+Veriyi `select_dtypes()` fonksiyonu ile inceledik.  
+- Sayısal sütun sayısı: 14  
+- Kategorik (object) sütun sayısı: 10
+
+---
+
+## 2. Sayısal Olması Gereken Object Tiplerini Dönüştürdük
+
+Aşağıdaki sütunlar `object` olarak gelmişti ama aslında sayısaldı:
+- SBP
+- DBP
+- HR
+- RR
+- BT
+- Saturation
+
+Bu sütunları `pd.to_numeric()` ile `float` formatına çevirdik:
+```python
+for col in ["SBP", "DBP", "HR", "RR", "BT", "Saturation"]:
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+
+3. Kategorik Değişkenleri Encode Ettik (One-Hot Encoding)
+Model için get_dummies() fonksiyonu kullandık. Encode edilen sütunlar:
+
+Sex
+
+Arrival mode
+
+Injury
+
+Mental
+
+Pain
+
+NRS_pain
+
+Yeni dataframe: df_encoded
+
+4. Yeni Özellik Oluşturduk: Risk Skoru
+Riskli hastaları önceden anlamak için aşağıdaki kurallarla risk_score adlı yeni bir sütun ekledik:
+
+BT (vücut ısısı) ≥ 38 → +1 puan
+
+HR (nabız) ≥ 100 → +1 puan
+
+Yaş ≥ 70 → +1 puan
+
+Toplam skor 0–3 arasında değişiyor.
+
+Kod:
+
+def calculate_risk(row):
+    risk = 0
+    if row["BT"] >= 38: risk += 1
+    if row["HR"] >= 100: risk += 1
+    if row["Age"] >= 70: risk += 1
+    return risk
+
+df["risk_score"] = df.apply(calculate_risk, axis=1)
+
+5. Sonuç:
+Bu görevde hem temizlik hem de yeni bilgi üretimi yaptık.
+Verimiz artık model eğitimi için daha uygun hale geldi.

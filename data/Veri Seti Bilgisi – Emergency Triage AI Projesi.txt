@@ -1,0 +1,49 @@
+# ANDAC BILGILI 
+# 5-7-2025
+
+
+# Veri Seti Bilgisi – Emergency Triage AI Projesi
+
+Bu projede kullandığımız veri seti, acil servise gelen hastaların çeşitli bilgilerinden (yaş, tansiyon, nabız, şikayet vb.) oluşmaktadır. Veriyi Kaggle üzerinden bulduk ve projeye uygun olduğu için tercih ettik.
+
+## Kaynak:
+- Kaggle linki: https://www.kaggle.com/datasets/ilkeryildiz/emergency-service-triage-application
+- Dataset adı: Emergency Service Triage Application Dataset
+
+## İçerik:
+- Toplamda **1267 satır** ve **24 sütun** veri var.
+- Her satır bir hasta örneğini temsil ediyor.
+- İçinde hem sayısal hem kategorik hem de metin türünde veriler bulunuyor.
+
+## Örnek Sütunlar:
+- `Age`: Hastanın yaşı
+- `Sex`: Cinsiyet (1 = Erkek, 2 = Kadın)
+- `SBP`, `DBP`: Kan basınçları (sistolik & diyastolik)
+- `HR`, `RR`, `BT`: Vital bulgular (nabız, solunum, ateş)
+- `Chief_complain`: Hastanın şikayet metni
+- `KTAS_RN`: Hemşire tarafından verilen aciliyet skoru (1–5)
+
+## Teknik Notlar:
+- Veri dosyasının adı: `data.csv`
+- Dosya ayracı: `;` (noktalı virgül)
+- Sayılarda ondalık işareti olarak virgül kullanılmış (örn: 36,5)
+- Bu yüzden dosyayı Pandas ile şu şekilde açtık:
+  ```python
+  df = pd.read_csv("data.csv", sep=";", encoding="latin1", decimal=",")
+
+
+Neden Bu Veri Seti?
+
+Acil durumlarda önceliklendirme (triage) yapmak bu projenin ana hedefi.
+
+KTAS etiketi üzerinden sınıflandırma yapmak mümkün.
+
+Gerçek dünya verisi olduğu için projeye uygun.
+
+Model eğitimi ve GenAI açıklama üretimi için yeterli bilgi içeriyor.
+
+Lisans:
+
+Veri seti kamuya açık paylaşıldığı için bu projede kullanmakta bir sakınca yok.
+
+Herhangi bir kişisel veri (isim, ID vb.) bulunmadığı için gizlilik sorunu da yok.

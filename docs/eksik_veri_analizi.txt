@@ -1,0 +1,54 @@
+# ANDAC BILGILI 
+# 5-7-2025
+
+
+
+# Eksik ve Uyumsuz Değer Analizi – Sprint 1 / Emergency Triage AI
+
+Bu dosya, proje kapsamında kullandığımız veri setindeki eksik değerleri ve veri tipi uyumsuzluklarını analiz ettiğim Sprint 1 Görev 2 çalışmasını içermektedir.
+
+---
+
+## 1. Genel Bilgi:
+
+Veri seti toplam 1267 satır ve 24 sütundan oluşmaktadır. Kaggle üzerinden indirilmiş ve Pandas kütüphanesi kullanılarak projeye dahil edilmiştir.
+
+Kodla dosyayı şöyle açtık:
+```python
+df = pd.read_csv("data.csv", sep=";", encoding="latin1", decimal=",")
+
+2. Eksik Değer Analizi:
+Veri setini df.info() ve df.isnull().sum() fonksiyonları ile inceledik.
+
+Eksik veri bulunan sütunlar:
+Saturation → 688 satır eksik (toplamın %54'ü).
+Bu sütun, kandaki oksijen oranını gösteriyor ama çok fazla eksik olduğu için modelleme öncesinde silinmesi veya başka yöntemlerle doldurulması gerekebilir.
+
+Diagnosis in ED → 2 satır eksik.
+Bu kadar az eksik veri olduğu için dropna() ile kolayca temizlenebilir.
+
+Geri kalan sütunlarda eksik veri bulunmamaktadır.
+
+
+3. Uyumsuz Veri Tipleri:
+Bazı sütunlar sayısal değerler içeriyor olmasına rağmen object (metin) türünde okunmuş. Bu durum analiz sırasında fark edildi.
+
+Object olup sayısal olması gereken sütunlar:
+
+SBP (Sistolik Basınç)
+
+DBP (Diyastolik Basınç)
+
+HR (Nabız)
+
+RR (Solunum Hızı)
+
+BT (Vücut Isısı)
+
+Saturation
+
+Bunları dönüştürmek için örnek kod:
+
+df["SBP"] = df["SBP"].astype(float)
+Dönüştürmeden önce sayısal ifadelerde nokta yerine virgül kullanıldığı için decimal="," ayarı zaten okuma aşamasında yapılmıştı.
+
