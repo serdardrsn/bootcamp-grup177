@@ -1,4 +1,4 @@
-# Emergency Triage AI - Sprint 1 Raporu
+# Emergency Triage AI 
 
 ## 1. Takım Bilgileri
 **Takım Adı:** Takım 177
