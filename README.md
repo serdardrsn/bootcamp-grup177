@@ -1,107 +1,102 @@
+
 # Emergency Triage AI 
 
-## 1. Takım Bilgileri
-**Takım Adı:** Takım 177
+## Takım Bilgileri
 
-**Takım Üyeleri ve Rolleri:**
-- Andaç Bilgili – Project Owner  
-- Serdar Dursun – Scrum Master  
-- Mustafa Günhan – Developer  
-- Tuğçe Önder – Developer  
+**Takım Adı**: Takım 177  
+**Proje Adı**: Emergency Triage AI  
+
+**Takım Üyeleri:**
+- Andaç Bilgili – Project Owner
+- Serdar Dursun – Scrum Master
+- Mustafa Günhan – Developer
+- Tuğçe Önder – Developer
 - Eren Eroğlu – Developer
 
-## 2. Proje ve Ürün Tanımı
-**Emergency Triage AI**, acil servislerde hasta önceliklendirme (triage) sürecini dijitalleştirmeye ve sağlık profesyonellerine karar destek sunmaya yönelik geliştirilmiş, veri temelli ve yapay zeka destekli bir sistemdir. Projenin temel amacı, hasta kabul anında girilen hayati bulgular ve semptomlara dayalı olarak, hastanın klinik aciliyet düzeyini hızlı ve güvenilir bir şekilde tahmin etmektir.
+## Tanıtım
 
-Bu sistemde referans alınan sınıflandırma protokolü, **Korean Triage and Acuity Scale (KTAS)** olup, hastaları “Kırmızı (çok acil)”, “Sarı (acil)” ve “Yeşil (daha az acil)” olmak üzere üç ana kategoriye ayırmayı amaçlar. KTAS, hastanın klinik durumuna dayalı aciliyet skorlarını standartlaştırarak, sağlık kaynaklarının etkili kullanılmasını destekleyen yaygın bir triyaj ölçeğidir.
+Emergency Triage AI, acil servislerde hastaların önceliklendirilmesi sürecine yapay zekâ tabanlı destek sunmayı amaçlayan bir karar destek sistemidir. Proje, kamuya açık bir acil servis veri seti üzerinde çalışarak, sağlık personelinin daha etkili ve hızlı karar almasını destekleyecek bir uygulama geliştirmeyi hedeflemektedir. Projede kullanılan veri setinde KTAS (Korean Triage and Acuity Scale) skorları hedef değişken olarak ele alınmış ve sınıflandırma modeliyle tahminlenmesi amaçlanmıştır.
 
-Geleneksel KTAS uygulamaları sağlık personelinin bireysel değerlendirmelerine dayanırken, **Emergency Triage AI** bu süreci otomatikleştirerek:
-- Yanlılık ve tutarsızlığı azaltmayı,
-- Zaman kazandırmayı,
-- Ön değerlendirme süreçlerini standardize etmeyi hedeflemektedir.
-
-## 3. Sprint Yönetimi ve Trello
-Sprint takibi Trello üzerinden yapılmıştır. Sprint 1 panosuna ait bağlantı:  
-🔗 https://trello.com/invite/b/68665405dede83130f458f73/ATTIc0d28ec31b5a2e3f11f642a9e7280ed023B5F3A6/bootcamp-sprint-1
-
-## 4. Sprint 1 Görev Özeti ve Durumu
-
-Sprint 1 toplam **100 puan** olarak hedeflenmiştir ve bu hedef başarıyla gerçekleştirilmiştir. Projenin veri hazırlığı, kullanıcı arayüzü ve temel API altyapısı bu sprintte tamamlanmış ve sistem uçtan uca çalışır hâle getirilmiştir.
-
-### ✅ Tamamlanan Görevler
-
-- Kaggle veri setinin indirilmesi ve dokümantasyonu  
-- Eksik/uyumsuz değerlerin analizi  
-- KTAS sınıf dönüşümü  
-- Özellik mühendisliği  
-- Feature açıklama dokümantasyonu  
-- Form mimarisi + input tipi belirleme  
-- Giriş inputlarının entegresi  
-- Dropdown alanlarının kodlanması  
-- Veri transfer formatı belirleme  
-- FastAPI kurulumu  
-- Tahmin endpoint'inin oluşturulması  
-- Streamlit → API bağlantısı  
-- GitHub repo oluşturma ve branch yapısı  
-- Ekran görüntüsü ve kullanıcı dökümantasyonu  
-- Sprint 1 özet raporu hazırlanması  
-- API dummy veri testleri  
-- UI input testleri  
-- Geliştirici API dokümantasyonu  
-- Uygulama mimarisi şeması  
+Sprint 1 kapsamında, temel veri altyapısı kurulmuş, giriş arayüzü hazırlanmış ve FastAPI ile API bağlantısı sağlanarak uçtan uca çalışan bir prototip oluşturulmuştur.
 
 ---
 
-## 5. Kullanıcı Arayüzü (Streamlit Form)
-![Streamlit Formu](Screenshot%202025-07-06%20184850.png)
+## 🔧 Sprint 1 Kapsamında Gerçekleştirilenler (Toplam 100 Puan)
 
-## 6. Sprint Board Görüntüsü (Trello)
-![Trello Board](Screenshot%202025-07-06%20200715.png)
+- Kaggle veri setinin indirilmesi ve dokümantasyonu ✅
+- Eksik/uyumsuz değerlerin analizi ✅
+- KTAS sınıf dönüşümü ✅
+- Özellik mühendisliği ✅
+- Feature açıklama dokümantasyonu ✅
+- Form mimarisi ve input tipi belirleme ✅
+- Giriş inputlarının entegresi ✅
+- Dropdown alanlarının kodlanması ✅
+- Veri transfer formatı belirleme ✅
+- FastAPI kurulumu ✅
+- Tahmin endpoint'inin oluşturulması ✅
+- Streamlit → API bağlantısı ✅
+- GitHub repo oluşturma ve branch yapısı ✅
+- Ekran görüntüsü ve kullanıcı dokümantasyonu ✅
+- Sprint 1 özet raporu hazırlanması ✅
+- API dummy veri testleri ✅
+- UI input testleri ✅
+- Geliştirici API dokümantasyonu ✅
+- Uygulama mimarisi şeması ✅
 
-## 7. API Dökümantasyonu (Geliştirici)
+🌟 **Sprint 1 toplam 100 puan olarak hedeflenmiş ve başarıyla tamamlanmıştır.**
 
-**Endpoint:** `POST /predict`
+---
 
-**Giriş (JSON):**
-```json
-{
-  "age": 76,
-  "sbp": 100,
-  "dbp": 70,
-  "hr": 120,
-  "rr": 20,
-  "bt": 39.2,
-  "mental": "Tepkisiz",
-  "sex": "Kadın",
-  "arrival_mode": "Ambulans",
-  "injury": "Evet",
-  "pain": 7
-}
-```
+## 🗓️ Sprint Notları
 
-**Dönüş:**
-```json
-{
-  "ktas_tahmini": "Kırmızı"
-}
-```
+- **Sprint Süresi**: 17 gün  
+- **Sprint Zaman Aralığı**: 20 Haziran 2025 – 6 Temmuz 2025
+- **Sprintin Hedefi**: 
+  - Acil servis triaj sürecini destekleyecek bir yapay zekâ modelinin veri hazırlık altyapısının oluşturulması,
+  - Sağlık personelinin kullanıcı girişi yapabileceği bir arayüz geliştirilmesi,
+  - API ile tahmin hizmetinin uçtan uca çalıştırılmasıdır.
+- **Planlanan Görev Sayısı**: 19  
+- **Gerçekleştirilen Görev Sayısı**: 19  
+- **Sprint Performansı**: 100/100 puan başarıyla tamamlandı.
 
-> Tahmin mantığı: Ateş > 38, Nabız > 100 veya Yaş > 70 → Kırmızı
+Sprint boyunca tüm ekip üyeleri rol tanımlarına uygun şekilde görevlerini tamamlamış ve günlük koordinasyon sağlanmıştır. Zaman yönetimi başarılı şekilde uygulanmış, plan dışı gecikme veya aksama yaşanmamıştır.
 
-## 8. Uygulama Mimarisi (Akış)
+## 💬 Daily Scrum
 
-```
-Kullanıcı
-   ↓
-Streamlit Form
-   ↓
-JSON Veri
-   ↓
-FastAPI /predict Endpoint
-   ↓
-Model ile Tahmin
-   ↓
-Tahmin Sonucu
-```
+Günlük iletişimler Google Meet ve WhatsApp grubu üzerinden gerçekleştirilmiştir. Ekip üyeleri gün başında görev paylaşımı ve durum güncellemeleri yaparak ilerlemeleri koordine etmiştir. Aşağıda örnek iletişim ekran görüntüleri yer almaktadır:
 
-> Bu yapı yerel çalışmaya ve modüler entegrasyona uygundur.
+![Daily Scrum 1](./daily1.png)  
+![Daily Scrum 2](./daily2.png)
+
+## ✅ Ürün Durumu: Ekran Görüntüleri
+
+Sprint 1 sonunda ortaya çıkan ürünün ekran görüntüsü aşağıda yer almaktadır:
+
+![Ürün Ekranı](./urun1.png)
+
+## 📌 Trello Panosu
+
+Sprint boyunca görev takibi, ilerleme durumu ve ekip koordinasyonu aşağıdaki Trello panosu üzerinden yürütülmüştür:
+
+![Trello Görseli](./trello.png)
+
+## 🔎 Sprint Review
+
+Sprint sonunda yapılan değerlendirme toplantısında:
+- Tüm görevlerin zamanında ve eksiksiz tamamlandığı,
+- Kullanıcı arayüzünün temel işlevleri yerine getirdiği,
+- API servisinin doğru tahmin sonuçları döndürdüğü,
+- JSON formatında veri alışverişinin başarıyla gerçekleştiği gözlemlenmiştir.
+
+Prototip seviyesindeki sistem, acil servis personelinin kullanımına uygun temel altyapıyı sağlamaktadır.
+
+## ♻️ Sprint Retrospective
+
+- Sprint süresince ekip içi iletişim etkili şekilde sağlanmıştır.
+- Teknik zorluklar, ekip içinde iş birliği ile çözülmüş ve bilgi paylaşımı artmıştır.
+- Kullanılan araçlar (Streamlit, FastAPI) ile ilgili deneyim kazanılmıştır.
+- Bir sonraki sprintte model doğruluk oranının artırılması, kullanıcı deneyiminin iyileştirilmesi ve görsel çıktıların genişletilmesi hedeflenmektedir.
+
+---
+
+Bu dokümantasyon yalnızca Sprint 1 kapsamını içermektedir. İlerleyen sprintlerde model optimizasyonu, açıklanabilirlik (XAI), kullanıcı değerlendirme metrikleri ve GenAI modülü entegresi planlanmaktadır.
