@@ -1,0 +1,85 @@
+[
+  {
+    "prompt_format": "Bir hastaya KTAS sınıfı {ktas} verildi. Bu seviyeyi ve nedenlerini Türkçe olarak açıkla.",
+    "examples": [
+      {
+        "ktas": "Kırmızı",
+        "output": "Bu hasta kritik düzeyde risk altındadır. Hayati tehlikesi bulunduğu için acil müdahale gereklidir."
+      },
+      {
+        "ktas": "Sarı",
+        "output": "Hastanın durumu ciddi olmamakla birlikte yakından izlenmesi gereklidir. Orta düzeyde bir risk taşımaktadır."
+      },
+      {
+        "ktas": "Yeşil",
+        "output": "Hasta stabil durumdadır. Şikayetleri hafif düzeyde olduğu için acil müdahaleye gerek yoktur."
+      }
+    ]
+  },
+  {
+    "prompt_format": "Hasta yaşı: {age}, ateşi: {bt}, bilinç durumu: {mental}, KTAS seviyesi: {ktas}. Bu bilgileri dikkate alarak hastanın durumunu Türkçe açıklayınız.",
+    "examples": [
+      {
+        "ktas": "Kırmızı",
+        "input": { "age": 82, "bt": 39.4, "mental": "Bilinç bulanıklığı" },
+        "output": "Hastanın yaşı ileri, ateşi yüksek ve bilinci bulanık. Bu, ciddi bir sağlık sorununun göstergesidir ve derhal müdahale edilmelidir."
+      },
+      {
+        "ktas": "Turuncu",
+        "input": { "age": 65, "bt": 38.2, "mental": "Sersemlemiş" },
+        "output": "Hasta orta yaş grubunda, ateşi yüksek ve bilinci kısmen etkilenmiş. Acil değerlendirme gereklidir ancak durum hayati tehlike seviyesinde değildir."
+      },
+      {
+        "ktas": "Yeşil",
+        "input": { "age": 30, "bt": 36.6, "mental": "Uyanık" },
+        "output": "Hasta genç, ateşi normal ve bilinci açık. Genel durumu stabil görünmektedir. Rutin müdahale yeterlidir."
+      }
+    ]
+  },
+  {
+    "prompt_format": "KTAS sınıfı {ktas} olan bir hastayı değerlendirecek hemşireye kısa ve net bilgi ver.",
+    "examples": [
+      {
+        "ktas": "Kırmızı",
+        "output": "Hasta kritik durumda. Hemen müdahale edilmeli. Monitörizasyon ve doktor bilgilendirmesi şart."
+      },
+      {
+        "ktas": "Turuncu",
+        "output": "Orta riskli hasta. Gözlem ve vital takibi yapılmalı. Doktor ivedilikle bilgilendirilmeli."
+      },
+      {
+        "ktas": "Yeşil",
+        "output": "Düşük riskli hasta. Muayene sonrası poliklinik süreci yeterli olacaktır."
+      }
+    ]
+  },
+  {
+    "prompt_format": "Acil servise gelen hastanın KTAS değeri {ktas}. Bu hastaya uygulanması gereken adımları madde madde belirt.",
+    "examples": [
+      {
+        "ktas": "Kırmızı",
+        "output": [
+          "1. Acil serviste kırmızı alana alınmalı.",
+          "2. Monitörize edilmeli.",
+          "3. İlk müdahale 5 dakika içinde başlamalı.",
+          "4. Vital bulgular sürekli izlenmeli."
+        ]
+      },
+      {
+        "ktas": "Sarı",
+        "output": [
+          "1. Hasta gözlem odasına alınmalı.",
+          "2. 30 dakikada bir değerlendirme yapılmalı.",
+          "3. Acil dışı müdahaleler planlanmalı."
+        ]
+      },
+      {
+        "ktas": "Yeşil",
+        "output": [
+          "1. Poliklinik yönlendirmesi yapılmalı.",
+          "2. Gerekirse ağrı kesici/antibiyotik reçetesi verilmeli."
+        ]
+      }
+    ]
+  }
+]
