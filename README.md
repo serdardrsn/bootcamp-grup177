@@ -123,26 +123,24 @@ Sprint boyunca ekip üyeleri, sorumluluk alanlarına uygun şekilde görevlerini
 ---
 
 ## ✅ Sprint 2 Kapsamında Gerçekleştirilenler
-- **Veri Bilimi ve Modelleme**  
+ 
   - Logistic Regression modeli eğitildi ve doğrulandı.
   - Model performansı (Accuracy, F1) ölçüldü (sonuçlar düşük çıktı, Sprint 3’te iyileştirme planlandı).
   - Eğitilen model `joblib` formatında kaydedildi ve API’ye entegre edildi.
-- **API Entegrasyonu**  
   - FastAPI ile model servis edildi.
   - API endpoint oluşturuldu ve Swagger üzerinden test edildi.
-- **UI Geliştirme**  
   - Streamlit tabanlı arayüz tasarlandı.
   - Kullanıcıdan alınan veriler API’ye iletilerek tahmin alındı.
   - **Model tahmini** ve **rule-based tahmin** UI üzerinde ayrı olarak gösterildi.
   - Tahmin sonuçları renk kodları ve açıklama kartlarıyla görsel olarak zenginleştirildi.
-- **GenAI Hazırlıkları**  
   - Prompt formatları tanımlandı, örnekler oluşturuldu.
   - Chief Complaint için örnek metinler hazırlandı.
-  - Phi-3 modeli lokalde test edildi (tam entegrasyon Sprint 3’te yapılacak).
-- **Scrum Master Görevleri**  
+  - Phi-3 modeli lokalde test edildi (tam entegrasyon Sprint 3’te yapılacak).  
   - Trello güncellemeleri ve görev takibi tamamlandı.
   - Daily Scrum toplantıları organize edildi ve kayıt altına alındı.
   - Ekran görüntüleri ve dokümantasyon için gerekli materyaller hazırlandı.
+
+  🌟 **Sprint 2 toplam 120 puan olarak hedeflenmiş ve başarıyla tamamlanmıştır.**
 
 ---
 
