@@ -186,3 +186,12 @@ Sprint 2 boyunca görev yönetimi için **Trello** kullanılmıştır. Aşağıd
 - Bir sonraki sprintte, model optimizasyonu ve GenAI modülünün sisteme entegre edilerek tahmin açıklamalarının kullanıcıya sunulması hedeflenmektedir.
 
 
+---
+
+## ⚠️ Etik Uyarı ve Bilgilendirme
+
+Bu sistem, **acil servis triyaj süreçlerine destek sağlamak** amacıyla geliştirilmiş yapay zekâ tabanlı bir karar destek aracıdır.  
+Verilen tahminler **yalnızca bilgilendirme amaçlıdır** ve tıbbi kararların yerine geçmez.  
+Kesin tanı ve tedavi için mutlaka **yetkili sağlık personeline danışılmalıdır**.
+
+---
