@@ -1,0 +1,38 @@
+explanation_text = """
+Sprint 2: Logistic Regression Model Eğitimi ve Performans Ölçümü
+=================================================================
+
+Bu aşamada mevcut modelin uyumsuzluğu ve kötü performansı nedeniyle yeni bir Logistic Regression modeli eğitildi.
+İşlemler aşağıdaki adımlarla gerçekleştirildi:
+
+1. Veri Hazırlığı
+-----------------
+- Kullanılan veri seti: data.csv
+- Sayısal kolonlar (Age, SBP, DBP, HR, RR, BT, Pain) numeric tipe dönüştürüldü.
+- Eksik değerler tespit edildi ve gerekli dönüşümler yapıldı.
+
+2. Özellik Mühendisliği
+------------------------
+- risk_score adlı yeni bir özellik eklendi. Bu skor; SBP, HR, RR, BT ve Pain değerlerine göre hesaplandı.
+- Kategorik kolonlar (Sex, Arrival mode, Injury, Mental) için One-Hot Encoding uygulandı.
+- Sonuç olarak model için kullanılacak final feature set oluşturuldu.
+
+3. Model Eğitimi
+-----------------
+- Model: Logistic Regression (scikit-learn)
+- Parametreler: max_iter=1000, multi_class="ovr"
+- Veri: %80 eğitim, %20 test (stratify=y) şeklinde train/test split uygulandı.
+
+4. Performans Ölçümü
+----------------------
+Aşağıdaki metrikler hesaplandı ve metrics_report.txt dosyasına kaydedildi:
+- Accuracy
+- F1 Score
+- Precision
+- Recall
+- Confusion Matrix
+- Classification Report (her sınıf için detaylı)
+
+5. Model Kaydı
+--------------
+- Eğitilen model joblib formatında kaydedildi: new_model.joblib

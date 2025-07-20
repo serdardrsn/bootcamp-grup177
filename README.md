@@ -17,9 +17,12 @@
 
 Emergency Triage AI, acil servislerde hastaların önceliklendirilmesi sürecine yapay zekâ tabanlı destek sunmayı amaçlayan bir karar destek sistemidir. Proje, kamuya açık bir acil servis veri seti üzerinde çalışarak, sağlık personelinin daha etkili ve hızlı karar almasını destekleyecek bir uygulama geliştirmeyi hedeflemektedir. Projede kullanılan veri setinde KTAS (Korean Triage and Acuity Scale) skorları hedef değişken olarak ele alınmış ve sınıflandırma modeliyle tahminlenmesi amaçlanmıştır.
 
-Sprint 1 kapsamında, temel veri altyapısı kurulmuş, giriş arayüzü hazırlanmış ve FastAPI ile API bağlantısı sağlanarak uçtan uca çalışan bir prototip oluşturulmuştur.
+
 
 ---
+# SPRINT 1 – Ayrıntılı İş Kırılımı ve 100 Puanlık Puanlandırma
+
+Sprint 1 kapsamında, temel veri altyapısı kurulmuş, giriş arayüzü hazırlanmış ve FastAPI ile API bağlantısı sağlanarak uçtan uca çalışan bir prototip oluşturulmuştur.
 
 ## 🔧 Sprint 1 Kapsamında Gerçekleştirilenler (Toplam 100 Puan)
 
@@ -65,20 +68,20 @@ Sprint boyunca tüm ekip üyeleri rol tanımlarına uygun şekilde görevlerini 
 
 Günlük iletişimler Google Meet ve WhatsApp grubu üzerinden gerçekleştirilmiştir. Ekip üyeleri gün başında görev paylaşımı ve durum güncellemeleri yaparak ilerlemeleri koordine etmiştir. Aşağıda örnek iletişim ekran görüntüleri yer almaktadır:
 
-![Daily Scrum 1](./daily1.png)  
-![Daily Scrum 2](./daily2.png)
+![Daily Scrum 1](images/daily1.png)  
+![Daily Scrum 2](images/daily2.png)
 
 ## ✅ Ürün Durumu: Ekran Görüntüleri
 
 Sprint 1 sonunda ortaya çıkan ürünün ekran görüntüsü aşağıda yer almaktadır:
 
-![Ürün Ekranı](./urun1.png)
+![Ürün Ekranı](images/urun1.png)
 
 ## 📌 Trello Panosu
 
 Sprint boyunca görev takibi, ilerleme durumu ve ekip koordinasyonu aşağıdaki Trello panosu üzerinden yürütülmüştür:
 
-![Trello Görseli](./trello.png)
+![Trello Görseli](images/trello.png)
 
 ## 🔎 Sprint Review
 
@@ -99,4 +102,87 @@ Prototip seviyesindeki sistem, acil servis personelinin kullanımına uygun teme
 
 ---
 
-Bu dokümantasyon yalnızca Sprint 1 kapsamını içermektedir. İlerleyen sprintlerde model optimizasyonu, açıklanabilirlik (XAI), kullanıcı değerlendirme metrikleri ve GenAI modülü entegresi planlanmaktadır.
+# SPRINT 2 – Ayrıntılı İş Kırılımı ve 120 Puanlık Puanlandırma
+
+## 🗓️ Sprint Notları
+
+- **Sprint Süresi**: 14 gün  
+- **Sprint Zaman Aralığı**: 6 Temmuz 2025 – 20 Temmuz 2025  
+- **Sprintin Hedefi**:  
+  - Acil servis triaj sisteminde makine öğrenmesi modelinin geliştirilmesi ve API entegrasyonunun sağlanması,  
+  - Streamlit tabanlı kullanıcı arayüzünün tamamlanması ve uçtan uca çalışabilir hale getirilmesi,  
+  - Kullanıcıya hem **model tahmini** hem de **kural tabanlı tahmini** gösteren bir yapı kurulması,  
+  - GenAI entegrasyonuna yönelik hazırlıkların yapılması (tam entegrasyon bir sonraki sprintte gerçekleştirilecektir).  
+- **Planlanan Görev Sayısı**: 14  
+- **Gerçekleştirilen Görev Sayısı**: 14  
+- **Sprint Performansı**: 120/120 puan başarıyla tamamlandı.  
+
+Sprint boyunca ekip üyeleri, sorumluluk alanlarına uygun şekilde görevlerini tamamlamış ve günlük koordinasyon sağlanmıştır. Tüm kritik bileşenler zamanında tamamlanmış, plan dışı gecikme yaşanmamıştır.
+
+
+---
+
+## ✅ Sprint 2 Kapsamında Gerçekleştirilenler
+- **Veri Bilimi ve Modelleme**  
+  - Logistic Regression modeli eğitildi ve doğrulandı.
+  - Model performansı (Accuracy, F1) ölçüldü (sonuçlar düşük çıktı, Sprint 3’te iyileştirme planlandı).
+  - Eğitilen model `joblib` formatında kaydedildi ve API’ye entegre edildi.
+- **API Entegrasyonu**  
+  - FastAPI ile model servis edildi.
+  - API endpoint oluşturuldu ve Swagger üzerinden test edildi.
+- **UI Geliştirme**  
+  - Streamlit tabanlı arayüz tasarlandı.
+  - Kullanıcıdan alınan veriler API’ye iletilerek tahmin alındı.
+  - **Model tahmini** ve **rule-based tahmin** UI üzerinde ayrı olarak gösterildi.
+  - Tahmin sonuçları renk kodları ve açıklama kartlarıyla görsel olarak zenginleştirildi.
+- **GenAI Hazırlıkları**  
+  - Prompt formatları tanımlandı, örnekler oluşturuldu.
+  - Chief Complaint için örnek metinler hazırlandı.
+  - Phi-3 modeli lokalde test edildi (tam entegrasyon Sprint 3’te yapılacak).
+- **Scrum Master Görevleri**  
+  - Trello güncellemeleri ve görev takibi tamamlandı.
+  - Daily Scrum toplantıları organize edildi ve kayıt altına alındı.
+  - Ekran görüntüleri ve dokümantasyon için gerekli materyaller hazırlandı.
+
+---
+
+## 🗂 Daily Scrum
+Günlük iletişimler Google Meet ve WhatsApp grubu üzerinden gerçekleştirilmiştir. Ekip üyeleri gün başında görev paylaşımı ve durum güncellemeleri yaparak ilerlemeleri koordine etmiştir. Aşağıda örnek iletişim ekran görüntüleri yer almaktadır:
+
+![Daily Scrum 1](images/s2_daily1.png)  
+![Daily Scrum 2](images/s2_daily2.png)  
+
+---
+
+## 🖼 Ürün Durumu
+Sprint 2 sonunda, kullanıcı arayüzü ve API entegrasyonu tamamlanmış olup, sistem uçtan uca çalışabilir hale getirilmiştir. Aşağıda, uygulamanın son durumu gösterilmektedir:
+
+![Ürün Görseli](images/s2_urun1.png)  
+
+---
+
+## ✅ Trello Panosu
+Sprint 2 boyunca görev yönetimi için **Trello** kullanılmıştır. Aşağıda, ilgili sprint panosunun son durumu yer almaktadır:
+
+![Trello Panosu](images/s2_trello.png)  
+
+---
+
+## 🔍 Sprint 2 Review
+- API ve kullanıcı arayüzü entegrasyonu sorunsuz şekilde gerçekleştirildi.
+- Kullanıcı dostu arayüz geliştirildi ve renk kodlu tahmin kartları eklendi.
+- Model ve rule-based sistem aynı ekranda karşılaştırmalı olarak gösterilmektedir.
+- Model performansının düşük olduğu gözlemlendi; bu durum Sprint 3’te iyileştirilecek.
+- GenAI entegrasyonu için hazırlıklar tamamlandı ancak entegrasyon bir sonraki sprintte yapılacak.
+
+---
+
+## ♻️ Sprint 2 Retrospective
+
+- Sprint boyunca ekip içi iletişim etkili bir şekilde sağlanmış, görev dağılımı net ve zamanında tamamlanmıştır.
+- API ve kullanıcı arayüzü entegrasyonu planlandığı gibi gerçekleştirilmiş ve sistem uçtan uca çalışabilir hale getirilmiştir.
+- GenAI entegrasyonuna yönelik hazırlık çalışmaları yapılmış, ancak tam entegrasyon bir sonraki sprintte uygulanmak üzere planlanmıştır.
+- Modelin doğruluk oranı beklentinin altında kalmıştır; bu durum Sprint 3 için öncelikli iyileştirme alanı olarak belirlenmiştir.
+- Bir sonraki sprintte, model optimizasyonu ve GenAI modülünün sisteme entegre edilerek tahmin açıklamalarının kullanıcıya sunulması hedeflenmektedir.
+
+

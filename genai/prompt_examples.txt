@@ -1,0 +1,61 @@
+Sprint 2 - Görev 2: Prompt Havuzu ve Açıklama Arşivi
+------------------------------------------------------
+
+Bu dosyada, KTAS sınıfı tahminlerine yönelik olarak GenAI sisteminde kullanılabilecek örnek prompt kalıpları ve bu kalıplara ait örnek cevaplar yer almaktadır. Amaç, sistemin farklı risk seviyelerinde hastaya yapılacak açıklamaları otomatik üretmesini sağlamaktır.
+
+--------------------------------------
+Prompt Format 1:
+Bir hastaya KTAS sınıfı {ktas} verildi. Bu seviyeyi ve nedenlerini Türkçe olarak açıkla.
+
+Örnek Cevaplar:
+- KTAS: Kırmızı  
+  → Bu hasta kritik düzeyde risk altındadır. Hayati tehlikesi bulunduğu için acil müdahale gereklidir.
+
+- KTAS: Sarı  
+  → Hastanın durumu acil müdahale gerektirecek düzeyde değildir ancak gözlem altında tutulması önerilir.
+
+- KTAS: Yeşil  
+  → Hasta stabil durumdadır. Şikayetleri hafif düzeydedir, tedavi planı poliklinik üzerinden yürütülebilir.
+
+--------------------------------------
+Prompt Format 2:
+Hasta yaş: {age}, ateş: {bt}, bilinç durumu: {mental}, risk sınıfı: {ktas} → Bu hastanın durumunu hasta ve ailesine açıklayacak şekilde Türkçe açıkla.
+
+Örnek Cevaplar:
+- 85 yaşında, ateşi 39.0°C, bilinci yorgun, KTAS: Kırmızı  
+  → Hastamızın durumu ciddi. Yüksek ateş ve bilinç bulanıklığı nedeniyle hızlı müdahale edilmesi gerekiyor.
+
+- 30 yaşında, ateşi normal, bilinci açık, KTAS: Yeşil  
+  → Hastamızın genel durumu iyi. Şu an için acil bir risk yok. Şikayetleri kontrol altında.
+
+--------------------------------------
+Prompt Format 3:
+KTAS değeri {ktas} olan bir hastanın aciliyet seviyesini hemşireye rapor et.
+
+Örnek Cevaplar:
+- KTAS: Turuncu  
+  → Hasta orta düzey risk altında. Hızlı değerlendirme önerilir, gözlem gerekebilir.
+
+- KTAS: Mavi  
+  → Hasta için acil bir durum tespit edilmemiştir. Rutin kayıt sonrası taburcu edilebilir.
+
+--------------------------------------
+Prompt Format 4:
+Acil servise gelen hastanın KTAS tahmini {ktas}. Bu değere göre hastaya yapılması gerekenleri madde madde yaz.
+
+Örnek Cevaplar:
+- KTAS: Sarı  
+  1. Gözlem odasına alınmalı  
+  2. Vital bulgular takip edilmeli  
+  3. 1 saat içinde yeniden değerlendirme yapılmalı
+
+- KTAS: Kırmızı  
+  1. Hemen monitörize edilmeli  
+  2. Acil müdahale ekibi bilgilendirilmeli  
+  3. İlk 5 dakika içinde tedaviye başlanmalı
+
+--------------------------------------
+
+Genel Not:
+- Prompt kalıplarında `{ktas}`, `{age}`, `{mental}` gibi değişken alanlar gelecekte otomatik olarak yerleştirilecektir.
+- Üretilen cevaplar, hem hasta hem de sağlık personeli için anlamlı, sade ve tıbbi etikle uyumlu olacak şekilde yazılmıştır.
