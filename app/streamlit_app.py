@@ -35,15 +35,14 @@ if st.button("🚨 Tahmin Yap"):
             "hr": hr,
             "rr": rr,
             "bt": float(bt),
-            "mental": mental,
-            "sex": sex,
-            "arrival_mode": arrival_mode,
-            "injury": injury,
+            "mental": mental.lower(),  # örnek: "uyanık"
+            "sex": "female" if sex == "Kadın" else "male",
+            "arrival_mode": arrival_mode.lower(),  # örnek: "ambulans"
+            "injury": "evet" if injury == "Evet" else "hayır",
             "pain": pain
         }
 
         try:
-            # API isteği
             response = requests.post("http://127.0.0.1:8000/predict", json=input_data)
             response.raise_for_status()
             result = response.json()
@@ -51,33 +50,40 @@ if st.button("🚨 Tahmin Yap"):
             st.subheader("📝 Hasta Şikayeti")
             st.write(result["chief_complaint"])
 
-            # Model tahmini renkli kutu ile göster
+            predicted_label = result["final_prediction"]
+            ana_renk = predicted_label.split(" ")[0]  # ilk kelimeye göre renk sınıfı
+
             renk_map = {
                 "Kırmızı": ("#FF4B4B", "🔴 <b>Kırmızı Alan:</b> Hayati risk, hemen müdahale."),
-                "Turuncu": ("#FF8C00", "🟠 <b>Turuncu Alan:</b> Yüksek risk, acil müdahale."),
                 "Sarı": ("#FFD700", "🟡 <b>Sarı Alan:</b> Orta risk, 30 dk içinde değerlendirme."),
-                "Yeşil": ("#90EE90", "🟢 <b>Yeşil Alan:</b> Stabil, beklemesi uygun."),
-                "Mavi": ("#87CEEB", "🔵 <b>Mavi Alan:</b> Çok düşük risk, yönlendirme yapılabilir.")
+                "Yeşil": ("#90EE90", "🟢 <b>Yeşil Alan:</b> Stabil, beklemesi uygun.")
             }
 
-            renk, aciklama = renk_map.get(result["model_prediction"], ("#D3D3D3", "⚪ Belirsiz sınıf."))
+            renk, aciklama = renk_map.get(ana_renk, ("#D3D3D3", "⚪ Belirsiz sınıf."))
 
             st.markdown(
                 f"""
                 <div style='background-color: {renk}; padding: 20px; border-radius: 10px; text-align: center;'>
-                    <h2 style='color: black;'>Model Tahmini: {result['model_prediction']}</h2>
+                    <h2 style='color: black;'>Tahmin Sonucu: {predicted_label}</h2>
                     <p style='color: black; font-size: 18px;'>{aciklama}</p>
-                    <p><b>Tahmin Güveni:</b> {result['model_probability']}</p>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
 
-            # Rule-based tahmin
-            st.subheader("📌 Rule-Based Tahmin")
-            st.info(f"{result['rule_based_prediction']} - {result['rule_based_reason']}")
-
-        except Exception as e:
+        except requests.exceptions.RequestException as e:
             st.error(f"API bağlantı hatası: {e}")
+        except Exception as e:
+            st.error(f"İşlem sırasında bir hata oluştu: {e}")
 
-
+# Etik bilgilendirme
+st.markdown(
+    """
+    <hr>
+    <p style='font-size: 12px; color: gray; text-align: center;'>
+        <b>Etik Bilgilendirme:</b> Bu uygulama yalnızca akademik araştırma ve eğitim amaçlı geliştirilmiştir.
+        Yapay zekâ destekli çıktılar, klinik kararların yerini almaz. Nihai karar yetkili sağlık personelindedir.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
