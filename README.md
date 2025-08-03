@@ -291,6 +291,11 @@ Uygulama, sade ve kullanıcı dostu arayüzü ile sağlık personelinin anlık k
 
 Sonuç olarak, Emergency Triage AI projesi; klinik karar destek, veri yönetimi ve dijital sağlık çözümleri alanında uygulanabilir bir örnek olarak başarıyla tamamlanmıştır.
 
+## 🎥 Uygulama Tanıtım Videosu
+
+📺 [Tanıtım Videosu](https://youtu.be/I_qAmBDV28I?si=hGF4IDitjr3VxUcI)
+
+
 ## ⚠️ Etik Uyarı ve Bilgilendirme
 
 Bu sistem, **acil servis triyaj süreçlerine destek sağlamak** amacıyla geliştirilmiş yapay zekâ tabanlı bir karar destek aracıdır.  
