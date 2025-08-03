@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import os
 from joblib import load
+from datetime import datetime
 
 app = FastAPI()
 
@@ -41,14 +42,30 @@ def is_critical_case(data: PatientData) -> bool:
         data.pain >= 9
     )
 
+# Tahminleri loglamak için
+def log_prediction(chief_complaint, age, result):
+    log_dir = os.path.normpath(os.path.join(BASE_DIR, "..", "logs"))
+    os.makedirs(log_dir, exist_ok=True)
+    log_path = os.path.join(log_dir, "prediction_log.csv")
+
+    log_entry = pd.DataFrame([{
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "chief_complaint": chief_complaint,
+        "age": age,
+        "result": result
+    }])
+
+    if os.path.exists(log_path):
+        log_entry.to_csv(log_path, mode='a', header=False, index=False)
+    else:
+        log_entry.to_csv(log_path, mode='w', header=True, index=False)
+
 # Tahmin endpoint'i
 @app.post("/predict")
 def predict(data: PatientData):
-    # Eğer hasta kritikse doğrudan "Kırmızı"
     if is_critical_case(data):
         final_label = "Kırmızı"
     else:
-        # Model için gerekli tüm girişleri hazırla
         default_values = {
             "Group": "Adult",
             "Patients number per hour": 10.0,
@@ -59,7 +76,6 @@ def predict(data: PatientData):
             "Disposition": "Unknown"
         }
 
-        # Tüm özellik sözlüğü
         input_dict = {
             "Chief_complain": data.chief_complaint,
             "Age": data.age,
@@ -72,18 +88,19 @@ def predict(data: PatientData):
             "Sex": data.sex,
             "Arrival mode": data.arrival_mode,
             "Injury": data.injury,
-            "Pain": str(data.pain),  # model eğitiminde string ise
+            "Pain": str(data.pain),
             **default_values
         }
 
-        # Modelin beklediği sıraya göre özellikleri hazırla
         model_columns = model.feature_names_in_
         ordered_data = {col: input_dict.get(col, 0) for col in model_columns}
         df = pd.DataFrame([ordered_data])
 
-        # Model tahmini
         prediction = model.predict(df)
         final_label = label_encoder.inverse_transform(prediction)[0]
+
+    # Tahmini logla
+    log_prediction(data.chief_complaint, data.age, final_label)
 
     return {
         "final_prediction": final_label,

@@ -1,0 +1,43 @@
+EMERGENCY TRIAGE AI –  DEĞERLENDİRME RAPORU
+Tarih: 03.08.2025
+Kapsam: Genel değerlendirme
+
+
+1. Giriş
+Bu rapor, acil servis hastalarının önceliklendirilmesinde kullanılmak üzere geliştirilen Emergency Triage AI sisteminin çıktılarını değerlendirmek amacıyla hazırlanmıştır. Sistemin temel amacı; hastanın vital bulguları, semptomları ve bazı temel klinik değişkenler doğrultusunda, uygun öncelik sınıfını (Kırmızı, Sarı, Yeşil) doğru şekilde tahmin etmektir. Bu değerlendirme, modelin çıktılarına ilişkin üç temsilî senaryo üzerinden yapılmıştır. Her bir senaryo, sistemin sınıflandırma doğruluğunu ve klinik uygunluğunu test etmek üzere farklı risk düzeylerini içermektedir.
+
+2. Yöntem
+Değerlendirme, daha önce eğitim sürecinde kullanılmamış olan üç yeni hasta girdisi üzerinden gerçekleştirilmiştir. Her bir giriş, manuel olarak oluşturulmuş ve uygulama arayüzü kullanılarak sistemin tahminleme sürecine sokulmuştur. Hastaların yaş, şikayet, hayati bulgular ve bilinç durumu gibi değişkenleri dikkate alınarak yapılan tahminlerin, klinik olarak uygunluk gösterip göstermediği değerlendirilmiştir.
+
+3. Bulgular
+Senaryo 1 – Kırmızı Alan (Yüksek Öncelik):
+Bilinç kaybı, hipotansiyon (SBP 85 mmHg), taşikardi (HR 140 bpm), takipne (RR 35) ve hipertermi (BT 40.2°C) bulgularını içeren 75 yaşında bir hasta senaryosu sisteme girilmiştir. Model, bu hastayı kırmızı öncelik sınıfına atamıştır. Bu çıktı, kritik hasta tanımına tamamen uygundur ve kural tabanlı modülün bu tür durumları başarılı şekilde filtrelediğini göstermektedir.
+
+Senaryo 2 – Sarı Alan (Orta Öncelik):
+Baş dönmesi ve halsizlik şikayetleriyle başvuran, vital bulguları normal sınırlarda olmakla birlikte taşikardik (HR 105 bpm) olan ve sedye ile getirilen 55 yaşındaki bir hasta örneği sisteme tanıtılmıştır. Sistem bu vakayı sarı sınıfa atamıştır. Bu sınıflandırma, hastanın orta düzey risk taşıdığı varsayımıyla örtüşmekte ve makine öğrenmesi modelinin bu tür olgulara yönelik kararlarının klinik mantığa uygun olduğunu göstermektedir.
+
+Senaryo 3 – Yeşil Alan (Düşük Öncelik):
+Boğaz ağrısı şikayeti olan, genç yaşta, tüm vital bulguları normal sınırlarda bulunan ve yürüyerek başvuran bir hasta örneği üzerinden yapılan tahminleme sonucunda sistem, hastayı yeşil sınıfa atamıştır. Bu çıktı, sistemin düşük riskli hastaları doğru şekilde ayırt edebildiğini ve aşırı önceliklendirme eğilimi göstermediğini göstermektedir.
+
+4. Değerlendirme
+Gerçekleştirilen testler sonucunda sistem, her üç vaka senaryosunda da doğru sınıf tahminleri yapmıştır. Kırmızı sınıf için uygulanan kural tabanlı yaklaşım sayesinde yüksek riskli hastalar, herhangi bir makine öğrenimi karar sürecine girmeden hızlı ve güvenli şekilde ayrıştırılabilmektedir. Diğer iki sınıf için kullanılan makine öğrenimi modeli ise heterojen semptom yapısına sahip olguları doğru şekilde analiz edebilmiş ve uygun sınıflandırmayı gerçekleştirmiştir. Ayrıca sistem, düşük riskli hastaları yanlışlıkla yüksek risk sınıfına atamamış ve aşırı korumacı bir yaklaşım sergilememiştir.
+
+5.Uygulamanın Genel Faydası
+Acil servislerde hasta kabul ve yönlendirme süreçlerini hızlandırır.
+Sağlık personelinin karar yükünü azaltır, insan hatası riskini minimize eder.
+Kritik hastaların hızlı müdahalesini sağlar, kaynak kullanımını optimize eder.
+Hasta güvenliğini artırır ve acil sağlık hizmetlerinde operasyonel verimlilik sağlar.
+
+6.Vizyon
+Emergency Triage AI’nin vizyonu, yalnızca acil servislerde değil; ambulans ön değerlendirme, uzaktan sağlık danışmanlığı ve tele-tıp platformlarında da kullanılabilen, uluslararası düzeyde güvenilir bir karar destek sistemi olmaktır. Sürekli öğrenen ve gelişen yapısıyla, küresel sağlık sistemlerinde triyaj süreçlerine yapay zeka temelli bir standart kazandırmayı hedeflemektedir.
+
+7.Misyon
+Misyonumuz, yapay zeka ve makine öğrenimi tekniklerini kullanarak:
+-Sağlık çalışanlarına hızlı, doğru ve güvenilir triyaj desteği sunmak,
+-Acil servislerde hasta bakım kalitesini yükseltmek,
+-Kaynak kullanımını optimize ederek hayat kurtarıcı çözümler geliştirmek,
+-Sağlık teknolojilerinde yenilikçi ve insan odaklı bir dönüşüme öncülük etmektir.
+
+
+5. Sonuç
+Emergency Triage AI sistemi, örnek vakalar üzerinden gerçekleştirilen çıktı değerlendirmesi çerçevesinde, klinik kararlarla büyük oranda uyumlu sınıflandırmalar üretmiştir. Kural tabanlı modül ve makine öğrenmesi tabanlı modül arasında işlevsel bir denge kurulmuş ve bu yapı, uygulamanın karar güvenilirliğini artırmıştır. İleride yapılacak gerçek zamanlı saha testleriyle sistemin genellenebilirliği ve gerçek hasta verilerinde gösterdiği performans daha kapsamlı şekilde değerlendirilebilir.
