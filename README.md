@@ -196,7 +196,7 @@ Sprint 2 boyunca görev yönetimi için **Trello** kullanılmıştır. Aşağıd
 
 ---
 
-# SPRINT 3 – Ayrıntılı İş Kırılımı ve 120 Puanlık Puanlandırma
+# SPRINT 3 – Ayrıntılı İş Kırılımı ve 200 Puanlık Puanlandırma
 
 ## 🗓️ Sprint Notları
 
