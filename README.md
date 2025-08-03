@@ -1,5 +1,15 @@
 
-# Emergency Triage AI 
+<p align="center">
+  <img src="images/logo.png" alt="Emergency Triage AI Logo" width="160"/>
+</p>
+
+<h1 align="center">🚑 Emergency Triage AI - EmergAI </h1>
+
+<p align="center">
+  Klinik karar destek sistemi 
+</p>
+
+
 
 ## Takım Bilgileri
 
@@ -185,6 +195,101 @@ Sprint 2 boyunca görev yönetimi için **Trello** kullanılmıştır. Aşağıd
 
 
 ---
+
+# SPRINT 3 – Ayrıntılı İş Kırılımı ve 120 Puanlık Puanlandırma
+
+## 🗓️ Sprint Notları
+
+- **Sprint Süresi**: 14 gün  
+- **Sprint Zaman Aralığı**:  20 Temmuz 2025 -3 Ağustos 2025 
+- **Sprintin Hedefi**:  
+  - Emergency Triage AI sisteminde arayüz ve tahminleme altyapısının tamamlanması, 
+  - Klinik senaryolarla uyumlu, sade ama fonksiyonel bir kullanıcı arayüzü tasarımı, 
+  - Tahmin sisteminde hibrit yapı kurulması: kural tabanlı kırmızı sınıf + lojistik regresyona dayalı sarı-yeşil sınıflar,  
+  - Kayıt geçmişi, veri dışa aktarımı, hata yönetimi gibi fonksiyonel modüllerin eklenmesi,
+  - Prototipin klinik ortama sunulabilecek seviyeye getirilmesi,
+  - Video sunum ve tanıtım materyallerinin hazırlanması. 
+- **Planlanan Görev Sayısı**: 11 
+- **Gerçekleştirilen Görev Sayısı**: 11  
+- **Sprint Performansı**: 200/200 puan başarıyla tamamlandı.  
+
+Sprint boyunca ekip üyeleri, sorumluluk alanlarına uygun şekilde görevlerini tamamlamış ve günlük koordinasyon sağlanmıştır. Tüm kritik bileşenler zamanında tamamlanmış, plan dışı gecikme yaşanmamıştır.Tüm modüller zamanında teslim edilmiş, ürün nihai haline ulaşmıştır. Bu sprint, projenin son sprinti olup başarılı bir şekilde tamamlanmıştır.
+
+
+---
+
+## ✅ Sprint 3 Kapsamında Gerçekleştirilenler
+ 
+- Model Optimizasyonu: Logistic Regression yeniden eğitilerek performansı artırıldı.
+- Kural Tabanlı Sistem: Kırmızı sınıf için kritik eşiklere dayalı kurallar oluşturuldu ve API'ye entegre edildi.
+- Tahmin Kartları Dinamikleştirildi: Renk bazlı (Kırmızı, Sarı, Yeşil) tahmin kartları uygulamaya eklendi.
+- Klinik Arayüz Geliştirildi: Tek sayfalık, sade, kullanıcı dostu ve mobil uyumlu arayüz tasarlandı.
+- Form ve Buton Düzenlemeleri: Giriş alanları optimize edildi; buton boyutları ve düzenleri iyileştirildi.
+- Kayıt Paneli ve Geçmiş Kaydı: Kullanıcıdan alınan tüm veriler tarih/saat damgası ile kaydedilir hale getirildi.
+- CSV Dışa Aktarım özelliği eklendi.
+- Logo ve Başlık Entegrasyonu: Klinik seviyede görsel bütünlük sağlandı.
+- Hata Yönetimi: Eksik bilgi ve API bağlantı hataları kontrol altına alındı.
+- Sunum Videosu ve Tanıtım Metni: 2 dakikalık demo için senaryo yazıldı, altyazılar ve sesli anlatım metni oluşturuldu.
+- Trello ve Koordinasyon: Tüm kartlar tamamlandı, günlük kontroller eksiksiz yapıldı.
+
+  🌟 **Sprint 3  toplam 200 puan olarak hedeflenmiş ve başarıyla tamamlanmıştır.**
+
+---
+
+## 🗂 Daily Scrum
+Günlük iletişimler Google Meet ve WhatsApp grubu üzerinden gerçekleştirilmiştir. Ekip üyeleri gün başında görev paylaşımı ve durum güncellemeleri yaparak ilerlemeleri koordine etmiştir. Aşağıda örnek iletişim ekran görüntüleri yer almaktadır:
+
+![Daily Scrum 1](images/s3_daily1.png)  
+![Daily Scrum 2](images/s3_daily2.png)  
+
+---
+
+## 🖼 Ürün Durumu
+Sprint 3 sonunda, uygulama son halini almıştır. Aşağıda, uygulamanın son durumu gösterilmektedir:
+
+![Ürün Görseli](images/s3_urun1.png)  
+
+---
+
+## ✅ Trello Panosu
+Sprint 3 boyunca görev yönetimi için **Trello** kullanılmıştır. Aşağıda, ilgili sprint panosunun son durumu yer almaktadır:
+
+![Trello Panosu](images/s3_trello.png)  
+
+---
+
+## 🔍 Sprint 3 Review
+- Kırmızı sınıf, kural tabanlı olarak tanımlanarak kritik vakalarda manuel model bağımlılığı ortadan kaldırıldı.
+- Sarı ve yeşil sınıflar için Logistic Regression modeli yeniden eğitildi ve performans iyileştirildi.
+- Model tahmini ve kural tabanlı kararlar tek sistemde entegre biçimde çalışacak şekilde yapılandırıldı.
+- Klinik düzeyde sade, tek sayfalık bir kullanıcı arayüzü geliştirildi; kartlar renkli ve dinamik olarak sunulmaktadır.
+- Hasta kayıt formu ve giriş alanları optimize edilerek kullanıcı deneyimi geliştirildi.
+- Tahmin geçmişi tarih ve saat ile birlikte kaydedilir hale getirildi.
+- CSV formatında veri dışa aktarımı özelliği, Türkçe karakter uyumlu şekilde entegre edildi.
+- Logo ve başlık düzenlemeleriyle görsel bütünlük sağlandı, profesyonel görünüm elde edildi.
+- Tüm kullanıcı girdileri için validasyon ve hata yönetimi sistemleri eklendi.
+- Uygulama tanıtımı için seslendirme metni, senaryo ve örnek vaka senaryoları hazırlandı.
+- Tüm görevler Trello üzerinden takip edilerek 200 puanlık iş yükü başarıyla tamamlandı.
+---
+
+## ♻️ Sprint 3 Retrospective
+
+- Tüm sprint görevleri zamanında ve eksiksiz tamamlandı, herhangi bir plan dışı gecikme yaşanmadı.
+- Kullanıcı arayüzü, hedef kitle olan klinik personel için sezgisel ve profesyonel bir deneyim sunacak şekilde tasarlandı.
+- Tahminleme sistemi, kural tabanlı yaklaşım ve makine öğrenmesi ile hibrit bir yapı kazandı.
+- Kayıt yönetimi ve veri dışa aktarım modülleri, kurumsal raporlama süreçlerini destekleyecek şekilde geliştirildi.
+- Hata yönetimi ve kullanıcı kontrol sistemleri sayesinde uygulama kararlılığı artırıldı.
+- Proje planına uygun olarak video sunum materyalleri hazırlanarak tamamlayıcı içerikler üretildi.
+- Sprint 3, projenin son sprinti olarak başarılı şekilde tamamlandı ve proje yayına hazır hale getirildi.
+
+---
+## 📊 Proje Genel Değerlendirmesi
+
+Emergency Triage AI, acil servislerde triyaj kararlarını standartlaştırmak ve hızlandırmak amacıyla geliştirilmiş bir klinik karar destek sistemidir. Kırmızı sınıf için önceden tanımlı kurallar ile yüksek riskli durumlar otomatik olarak belirlenmiş; diğer durumlar ise makine öğrenmesiyle tahmin edilmiştir.
+
+Uygulama, sade ve kullanıcı dostu arayüzü ile sağlık personelinin anlık kararlarını destekleyecek şekilde tasarlanmıştır. Kaydedilen tüm girişler tarih-saat bilgisiyle arşivlenebilmekte ve dışa aktarılabilmektedir. Bu sayede sistem sadece karar desteği değil aynı zamanda kalite yönetimi ve kurumsal analiz süreçlerinde de kullanılabilir hale getirilmiştir.
+
+Sonuç olarak, Emergency Triage AI projesi; klinik karar destek, veri yönetimi ve dijital sağlık çözümleri alanında uygulanabilir bir örnek olarak başarıyla tamamlanmıştır.
 
 ## ⚠️ Etik Uyarı ve Bilgilendirme
 
